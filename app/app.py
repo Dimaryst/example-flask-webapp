@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-
+from settings import HOST_IP
 app = Flask(__name__)
 
 
@@ -8,10 +8,10 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/hi_page')
-def hi():
-    return "<h1>HI! My dear friend!</h1>"
+@app.route('/settings')
+def settings_page():
+    return render_template('settings.html')
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host=HOST_IP)
